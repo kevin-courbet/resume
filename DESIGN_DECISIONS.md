@@ -1,0 +1,2 @@
+date|actor|scope|decision|rationale|code_refs
+2026-06-10|agent|project architecture|CV source of truth is structured YAML rendered into DOCX and HTML, with PDFs generated from DOCX via LibreOffice and HTML via WeasyPrint; generated artifacts go under dist/ while root artifacts remain reference outputs.|Keeps CV content editable, makes both document pipelines repeatable, and avoids overwriting provided artifacts during bootstrap.|pyproject.toml;Taskfile.yml;src/cv_builder/build.py;data/resume.yml;templates/resume.html.j2

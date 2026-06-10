@@ -1,0 +1,100 @@
+name: Kevin Courbet
+headline: Software & Data Engineering Lead | Analytics Platforms | Agentic Engineering
+location: Paris, France
+phone: "+33 6 72 05 37 05"
+phone_uri: "+33672053705"
+email: kevin.courbet@versadev.fr
+linkedin: linkedin.com/in/kevincourbet
+linkedin_url: https://www.linkedin.com/in/kevincourbet
+website: kevincourbet.com
+website_url: https://kevincourbet.com
+github: github.com/kevin-courbet
+github_url: https://github.com/kevin-courbet
+profile: >-
+  Software and data engineering lead with 8+ years of experience taking data-intensive products from ideation to production.
+  Builds at the intersection of software engineering, data platforms, embedded analytics, and technical leadership.
+  Recent work includes engineering, from the ground up, a cost-efficient Databricks lakehouse and customer-facing analytics platform processing 20M+ records per day for Blue Systems (Bolloré Group), plus embedded analytics delivery for Amex GBT Consulting.
+  Former Amex GBT Consulting Engineering Manager leading distributed teams and embedded analytics products.
+  Practical user of agentic and AI-assisted engineering workflows, grounded in architecture, data modeling, testing, observability, performance, and product judgment.
+expertise:
+  - label: Data platforms
+    text: Databricks Lakehouse, Apache Spark/PySpark, Delta Lake, Delta Live Tables, dbt, SQL, ELT/ETL, data modeling
+  - label: Analytics & BI
+    text: Embedded analytics, Power BI, Tableau, self-served insights, dashboarding, data visualization, customer-facing reporting
+  - label: Software engineering
+    text: Golang, Python, TypeScript, JavaScript, React, Vue.js, C#, VBA, REST APIs, serverless/cloud systems
+  - label: Cloud & delivery
+    text: AWS, DevOps, CI/CD, testing, observability, performance, cost-efficient architecture, agile delivery
+  - label: Leadership
+    text: Technical roadmaps, architecture, stakeholder management, team management, mentoring, remote collaboration
+  - label: Agentic engineering
+    text: LLM-assisted development, agent harnesses, context engineering, workflow automation, loop design
+experience_page_1:
+  - title: Freelance Solutions Engineer / Lead Developer | VersaDev
+    context: Paris / Remote
+    dates: Mar 2023 - Present
+    bullets:
+      - Built software, data engineering, and analytics solutions for corporate clients, covering architecture, implementation, delivery, and handover.
+    clients:
+      - title: Blue Systems (Bolloré Group)
+        subtitle: Lead Developer / Data Platform Engineering
+        dates: Mar 2023 - Jun 2026
+        accent: primary
+        bullets:
+          - Engineered from the ground up a production Data Analytics platform processing 20M+ records per day under real-world cost constraints.
+          - Designed and implemented a Databricks lakehouse with Spark/PySpark pipelines, dbt transformations, Power BI analytics, and customer-facing insights.
+          - Built Go-based APIs for ingestion and operational workflows; integrated with Databricks SQL Warehouse, cloud/serverless patterns, and production data services.
+          - Developed cost-aware patterns for ingestion, transformation, analytics serving, and operations to keep the platform production-feasible.
+          - "Technical article: documented the Blue Systems implementation across Lakehouse, SQL Warehouses, Delta Live Tables, Unity Catalog, and a Go API for a smart-city data service."
+      - title: Amex GBT Consulting
+        subtitle: Freelance Consultant / Front-end Delivery
+        dates: Jun 2023 - Aug 2023
+        accent: secondary
+        bullets:
+          - Overhauled Amex GBT Consulting's consumer analytics portal to support self-served insights, interactivity, and user engagement.
+          - Integrated with product, development, and infrastructure teams in sprint cycles; delivered end-to-end Vue.js features and supported handover.
+    trailing_bullets:
+      - Built and refined AI-assisted and agentic engineering harnesses to accelerate delivery while preserving reliability, traceability, and engineering fundamentals.
+experience_page_2:
+  - title: Engineering Manager | Amex GBT Consulting, Global Solutions
+    context: Paris
+    dates: Mar 2021 - Mar 2023
+    bullets:
+      - Led a fully remote, globally distributed team of 7+ developers delivering embedded analytics, analytical pipelines, and web products.
+      - Implemented one of the largest European embedded analytics platforms in the consulting space.
+      - Created product ownership and delivery practices; liaised with directors to shape short- and long-term technology roadmaps.
+      - Oversaw technical delivery across multiple products while remaining 20-30% hands-on across full-stack web, JavaScript, Python, C#, SQL, and analytics tooling.
+      - Mentored developers, promoted engineering practices, facilitated cross-team collaboration, and removed delivery roadblocks.
+  - title: Lead Developer | Amex GBT Consulting, Global Solutions
+    context: Paris
+    dates: Mar 2020 - Feb 2021
+    bullets:
+      - Led development of analytics, web, cloud, serverless, and data visualization products for consulting teams and clients.
+      - Designed technical solutions bridging business requirements, data pipelines, APIs, and user-facing analytics experiences.
+      - Established coding practices, delivery workflows, and architectural patterns for increasingly productized analytics solutions.
+  - title: Project Manager, Digital Strategy & Data | Amex GBT Consulting
+    context: Paris
+    dates: Feb 2018 - Mar 2020
+    bullets:
+      - Drove digital transformation and data initiatives for Consulting, translating business needs into analytical products, workflows, and automation.
+      - Built and improved internal tools, analytical models, and reporting systems using Excel/VBA, Python, SQL, and web technologies.
+      - Collaborated with business travel consultants on process optimization, supplier negotiations, and data-driven decision support.
+  - title: Consultant, Business Travel & Analytics | Amex GBT Consulting
+    context: Paris
+    dates: 2016 - 2018
+    bullets:
+      - Delivered consulting analyses across business travel, process optimization, supplier negotiations, and performance reporting.
+      - Developed advanced analytical models and Excel/VBA tooling, establishing a foundation for later software and data engineering roles.
+projects:
+  - title: Founder | Autonomy Nexus / myAutonomy
+    dates: Sep 2025 - Present
+    text: Building a SaaS product helping French freelancers understand and manage financial autonomy, combining product design, data workflows, and full-stack development.
+  - title: Threadmill | Agentic Engineering Development Harness
+    dates: "2026"
+    text: Built a native macOS development harness for agentic engineering, managing development threads across worktrees, tmux sessions, terminals, files, browsers, remote development machines, and AI-agent conversations; includes Athena, an integrated AI assistant.
+education:
+  - title: Engineering Degree
+    meta: Arts et Métiers ParisTech | France
+  - title: Double Degree - Mechanical Engineering
+    meta: Budapest University of Technology and Economics
+additional: Competitive ballroom dancer.

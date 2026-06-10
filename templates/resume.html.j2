@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kevin Courbet - Resume</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5a6578;
+      --soft: #eef2f7;
+      --line: #d9e0ea;
+      --accent: #244f8f;
+      --accent-2: #0f766e;
+      --page-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #e8ebf0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.1pt;
+      line-height: 1.32;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 16px auto;
+      padding: 12mm 13mm 11mm 13mm;
+      background: var(--page-bg);
+      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.18);
+      position: relative;
+      overflow: hidden;
+      break-after: page;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      break-after: auto;
+      page-break-after: auto;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4.5mm;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .content { position: relative; z-index: 1; }
+
+    .header {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      padding-bottom: 5mm;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 4.2mm;
+    }
+
+    .header > div:first-child {
+      display: table-cell;
+      width: 58%;
+      vertical-align: bottom;
+      padding-right: 6mm;
+    }
+
+    h1 {
+      margin: 0 0 1.2mm 0;
+      font-size: 29pt;
+      line-height: 1;
+      letter-spacing: -0.7pt;
+      color: var(--ink);
+    }
+
+    .headline {
+      font-size: 10.7pt;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.25;
+    }
+
+    .contact {
+      display: table-cell;
+      width: 42%;
+      vertical-align: bottom;
+      text-align: right;
+      color: var(--muted);
+      font-size: 8.2pt;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    .contact strong { color: var(--ink); font-weight: 700; }
+
+    .summary {
+      font-size: 9.25pt;
+      color: #243047;
+      margin: 0;
+    }
+
+    section { margin-top: 4.5mm; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 2.6mm;
+      margin: 0 0 2.4mm 0;
+      font-size: 8.6pt;
+      letter-spacing: 1.25pt;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+      flex: 1 1 auto;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5.5mm;
+      row-gap: 1.4mm;
+      padding: 3mm;
+      background: #f7f9fc;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .expertise-item {
+      font-size: 8.55pt;
+      color: #29354a;
+    }
+
+    .expertise-item b {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .role { margin-top: 3.3mm; }
+
+    .role-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3mm;
+      align-items: baseline;
+      margin-bottom: 1.5mm;
+    }
+
+    .role-title {
+      font-size: 10.6pt;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .role-context {
+      margin-top: 0.5mm;
+      font-size: 8.45pt;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .dates {
+      font-size: 8.35pt;
+      font-weight: 800;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .client-card {
+      margin: 2.1mm 0 2.8mm 0;
+      padding: 2.2mm 3mm 2.4mm 3.2mm;
+      border-left: 2.4px solid var(--accent);
+      background: #f8fafc;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .client-card.alt { border-left-color: var(--accent-2); }
+
+    .client-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3mm;
+      align-items: baseline;
+      margin-bottom: 1mm;
+    }
+
+    .client-title {
+      font-size: 9.25pt;
+      font-weight: 800;
+      color: #1d293e;
+    }
+
+    .client-title span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 0.8mm 0 0 0;
+      padding-left: 4.4mm;
+    }
+
+    li {
+      margin: 0.75mm 0;
+      padding-left: 0.4mm;
+    }
+
+    .tight li { margin: 0.55mm 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 7mm;
+    }
+
+    .compact-section { margin-top: 3.5mm; }
+
+    .footer-note {
+      position: absolute;
+      right: 13mm;
+      bottom: 5.8mm;
+      font-size: 7.7pt;
+      color: #8b94a5;
+    }
+
+    .project-card {
+      padding: 2.25mm 3mm;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      margin-top: 1.8mm;
+    }
+
+    .project-title {
+      font-size: 9.3pt;
+      font-weight: 800;
+      margin-bottom: 0.6mm;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+    }
+
+    .edu-card {
+      padding: 2.2mm 2.8mm;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .edu-title {
+      font-weight: 800;
+      font-size: 9.1pt;
+      margin-bottom: 0.5mm;
+    }
+
+    .edu-meta {
+      color: var(--muted);
+      font-size: 8.45pt;
+    }
+
+    .tagline {
+      margin-top: 1.8mm;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    @media print {
+      html, body { background: white; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <div class="content">
+      <header class="header">
+        <div>
+          <h1>{{ name }}</h1>
+          <div class="headline">{{ headline }}</div>
+        </div>
+        <div class="contact">
+          <div><strong>{{ location }}</strong></div>
+          <div><a href="tel:{{ phone_uri }}">{{ phone }}</a> | <a href="mailto:{{ email }}">{{ email }}</a></div>
+          <div><a href="{{ linkedin_url }}">{{ linkedin }}</a> | <a href="{{ website_url }}">{{ website }}</a></div>
+          <div><a href="{{ github_url }}">{{ github }}</a></div>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="section-title">Profile</h2>
+        <p class="summary">{{ profile }}</p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="expertise-grid">
+          {% for item in expertise %}
+          <div class="expertise-item"><b>{{ item.label }}:</b> {{ item.text }}</div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Professional Experience</h2>
+        {% for role in experience_page_1 %}
+        <div class="role">
+          <div class="role-header">
+            <div>
+              <div class="role-title">{{ role.title }}</div>
+              <div class="role-context">{{ role.context }}</div>
+            </div>
+            <div class="dates">{{ role.dates }}</div>
+          </div>
+          {% if role.bullets %}
+          <ul class="tight">
+            {% for bullet in role.bullets %}<li>{{ bullet }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          {% for client in role.clients %}
+          <div class="client-card{% if client.accent == 'secondary' %} alt{% endif %}">
+            <div class="client-head">
+              <div class="client-title">{{ client.title }} <span>- {{ client.subtitle }}</span></div>
+              <div class="dates">{{ client.dates }}</div>
+            </div>
+            <ul class="tight">
+              {% for bullet in client.bullets %}<li>{{ bullet }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+          {% if role.trailing_bullets %}
+          <ul class="tight">
+            {% for bullet in role.trailing_bullets %}<li>{{ bullet }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </section>
+    </div>
+    <div class="footer-note">Kevin Courbet - Resume - Page 1/2</div>
+  </article>
+
+  <article class="page">
+    <div class="content">
+      <header class="header" style="padding-bottom:3.8mm;margin-bottom:3.7mm;">
+        <div>
+          <h1 style="font-size:20pt;letter-spacing:-0.3pt;">{{ name }}</h1>
+          <div class="headline">Professional Experience continued</div>
+        </div>
+        <div class="contact">
+          <div><a href="mailto:{{ email }}">{{ email }}</a> | <a href="tel:{{ phone_uri }}">{{ phone }}</a></div>
+          <div><a href="{{ linkedin_url }}">{{ linkedin }}</a></div>
+        </div>
+      </header>
+
+      <section style="margin-top:0;">
+        <h2 class="section-title">Professional Experience</h2>
+        {% for role in experience_page_2 %}
+        <div class="role">
+          <div class="role-header">
+            <div>
+              <div class="role-title">{{ role.title }}</div>
+              <div class="role-context">{{ role.context }}</div>
+            </div>
+            <div class="dates">{{ role.dates }}</div>
+          </div>
+          <ul>
+            {% for bullet in role.bullets %}<li>{{ bullet }}</li>{% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section class="compact-section">
+        <h2 class="section-title">Selected Projects</h2>
+        {% for project in projects %}
+        <div class="project-card">
+          <div class="client-head" style="margin-bottom:0.8mm;">
+            <div class="project-title">{{ project.title }}</div>
+            <div class="dates">{{ project.dates }}</div>
+          </div>
+          <div>{{ project.text }}</div>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section class="compact-section">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+          {% for edu in education %}
+          <div class="edu-card">
+            <div class="edu-title">{{ edu.title }}</div>
+            <div class="edu-meta">{{ edu.meta }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="compact-section">
+        <h2 class="section-title">Additional</h2>
+        <div class="project-card">{{ additional }}</div>
+      </section>
+    </div>
+    <div class="footer-note">Kevin Courbet - Resume - Page 2/2</div>
+  </article>
+</body>
+</html>

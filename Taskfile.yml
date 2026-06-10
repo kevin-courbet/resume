@@ -1,0 +1,22 @@
+version: "3"
+
+tasks:
+  sync:
+    desc: Install Python dependencies with uv
+    cmds:
+      - uv sync
+
+  build:
+    desc: Generate DOCX, DOCX-PDF, HTML, and HTML-PDF artifacts
+    cmds:
+      - uv run cv-build
+
+  build:no-docx-pdf:
+    desc: Generate artifacts available without LibreOffice
+    cmds:
+      - uv run cv-build --skip-docx-pdf
+
+  clean:
+    desc: Remove generated artifacts
+    cmds:
+      - rm -rf dist

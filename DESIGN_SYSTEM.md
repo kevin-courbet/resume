@@ -62,7 +62,7 @@ These produced the dark column and govern any future tuning:
 
 ## Spacing & shape
 
-- Page: A4, padding `12mm 13mm 11mm`; brand stripe 4.5mm gradient (`accent → accent-2`) on left edge.
+- Page: fixed A4 `210mm × 297mm`, padding `12mm 13mm 11mm`; brand stripe 4.5mm gradient (`accent → accent-2`) on left edge.
 - Section gap 4.5mm (compact 3.5mm), role gap 3.3mm, card padding ~2.2mm × 3mm.
 - Radius: 7px panels/cards, `0 6px 6px 0` for left-accent client cards.
 - Hairlines 1px `--line`; client-card accent bar 2.4px.

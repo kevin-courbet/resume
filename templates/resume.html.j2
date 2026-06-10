@@ -5,38 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kevin Courbet - Resume</title>
   <style>
+    /* Token layer — single source of truth is DESIGN_SYSTEM.md. Edit values there first. */
     :root {
       --body-bg: #e8ebf0;
+      --heading: #172033;
       --ink: #172033;
+      --summary: #243047;
       --muted: #5a6578;
-      --soft: #eef2f7;
       --line: #d9e0ea;
       --accent: #244f8f;
       --accent-2: #0f766e;
       --page-bg: #ffffff;
-      --summary: #243047;
       --panel-bg: #f8fafc;
       --panel-bg-strong: #f7f9fc;
       --card-title: #1d293e;
       --page-shadow: 0 12px 34px rgba(23, 32, 51, 0.18);
+      --page-edge: transparent;
       --footer: #8b94a5;
     }
 
     :root[data-theme="dark"] {
-      --body-bg: #0c0f0e;
-      --ink: #f2f5f3;
-      --muted: #a8b0ad;
-      --soft: #26302d;
-      --line: #2f3936;
-      --accent: #5eead4;
-      --accent-2: #14b8a6;
-      --page-bg: #141817;
-      --summary: #d7ddda;
-      --panel-bg: #19201e;
-      --panel-bg-strong: #161d1b;
-      --card-title: #f6faf8;
-      --page-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
-      --footer: #7d8985;
+      --body-bg: #0a0a0b;
+      --heading: #ececef;
+      --ink: #d4d4d8;
+      --summary: #c2c2c9;
+      --muted: #94949c;
+      --line: #2c2c31;
+      --accent: #56b8a9;
+      --accent-2: #3f9d8f;
+      --page-bg: #18181b;
+      --panel-bg: #1e1e22;
+      --panel-bg-strong: #1c1c20;
+      --card-title: #e4e4e8;
+      --page-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+      --page-edge: #2c2c31;
+      --footer: #71717a;
     }
 
     * { box-sizing: border-box; }
@@ -61,6 +64,7 @@
       margin: 16px auto;
       padding: 12mm 13mm 11mm 13mm;
       background: var(--page-bg);
+      border: 1px solid var(--page-edge);
       box-shadow: var(--page-shadow);
       position: relative;
       overflow: hidden;
@@ -106,7 +110,7 @@
       font-size: 29pt;
       line-height: 1;
       letter-spacing: -0.7pt;
-      color: var(--ink);
+      color: var(--heading);
     }
 
     .headline {
@@ -147,7 +151,7 @@
       letter-spacing: 1.25pt;
       text-transform: uppercase;
       color: var(--accent);
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .section-title::after {
@@ -175,7 +179,7 @@
 
     .expertise-item b {
       color: var(--ink);
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .role { margin-top: 3.3mm; }
@@ -190,7 +194,7 @@
 
     .role-title {
       font-size: 10.6pt;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--ink);
     }
 
@@ -203,7 +207,7 @@
 
     .dates {
       font-size: 8.35pt;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--accent);
       white-space: nowrap;
     }
@@ -228,7 +232,7 @@
 
     .client-title {
       font-size: 9.25pt;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--card-title);
     }
 
@@ -275,7 +279,7 @@
 
     .project-title {
       font-size: 9.3pt;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 0.6mm;
     }
 
@@ -293,7 +297,7 @@
     }
 
     .edu-title {
-      font-weight: 800;
+      font-weight: 700;
       font-size: 9.1pt;
       margin-bottom: 0.5mm;
     }

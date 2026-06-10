@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="{{ theme }}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kevin Courbet - Resume</title>
   <style>
     :root {
+      --body-bg: #e8ebf0;
       --ink: #172033;
       --muted: #5a6578;
       --soft: #eef2f7;
@@ -13,6 +14,29 @@
       --accent: #244f8f;
       --accent-2: #0f766e;
       --page-bg: #ffffff;
+      --summary: #243047;
+      --panel-bg: #f8fafc;
+      --panel-bg-strong: #f7f9fc;
+      --card-title: #1d293e;
+      --page-shadow: 0 12px 34px rgba(23, 32, 51, 0.18);
+      --footer: #8b94a5;
+    }
+
+    :root[data-theme="dark"] {
+      --body-bg: #05070d;
+      --ink: #e7edf8;
+      --muted: #a7b0c2;
+      --soft: #182235;
+      --line: #2b3950;
+      --accent: #7dd3fc;
+      --accent-2: #5eead4;
+      --page-bg: #0f1726;
+      --summary: #c8d2e2;
+      --panel-bg: #151f31;
+      --panel-bg-strong: #121b2b;
+      --card-title: #eef4ff;
+      --page-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+      --footer: #6f7d92;
     }
 
     * { box-sizing: border-box; }
@@ -20,7 +44,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #e8ebf0;
+      background: var(--body-bg);
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
       font-size: 9.1pt;
@@ -37,7 +61,7 @@
       margin: 16px auto;
       padding: 12mm 13mm 11mm 13mm;
       background: var(--page-bg);
-      box-shadow: 0 12px 34px rgba(23, 32, 51, 0.18);
+      box-shadow: var(--page-shadow);
       position: relative;
       overflow: hidden;
       break-after: page;
@@ -108,7 +132,7 @@
 
     .summary {
       font-size: 9.25pt;
-      color: #243047;
+      color: var(--summary);
       margin: 0;
     }
 
@@ -139,14 +163,14 @@
       column-gap: 5.5mm;
       row-gap: 1.4mm;
       padding: 3mm;
-      background: #f7f9fc;
+      background: var(--panel-bg-strong);
       border: 1px solid var(--line);
       border-radius: 7px;
     }
 
     .expertise-item {
       font-size: 8.55pt;
-      color: #29354a;
+      color: var(--summary);
     }
 
     .expertise-item b {
@@ -188,7 +212,7 @@
       margin: 2.1mm 0 2.8mm 0;
       padding: 2.2mm 3mm 2.4mm 3.2mm;
       border-left: 2.4px solid var(--accent);
-      background: #f8fafc;
+      background: var(--panel-bg);
       border-radius: 0 6px 6px 0;
     }
 
@@ -205,7 +229,7 @@
     .client-title {
       font-size: 9.25pt;
       font-weight: 800;
-      color: #1d293e;
+      color: var(--card-title);
     }
 
     .client-title span {
@@ -238,12 +262,12 @@
       right: 13mm;
       bottom: 5.8mm;
       font-size: 7.7pt;
-      color: #8b94a5;
+      color: var(--footer);
     }
 
     .project-card {
       padding: 2.25mm 3mm;
-      background: #f8fafc;
+      background: var(--panel-bg);
       border: 1px solid var(--line);
       border-radius: 7px;
       margin-top: 1.8mm;
@@ -263,7 +287,7 @@
 
     .edu-card {
       padding: 2.2mm 2.8mm;
-      background: #f8fafc;
+      background: var(--panel-bg);
       border: 1px solid var(--line);
       border-radius: 7px;
     }

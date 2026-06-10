@@ -54,7 +54,7 @@ def load_resume_data(path: Path) -> dict[str, Any]:
     return data
 
 
-def render_html(data: dict[str, Any], template_dir: Path, output_path: Path) -> None:
+def render_html(data: dict[str, Any], template_dir: Path, output_path: Path, theme: str) -> None:
     env = Environment(
         loader=FileSystemLoader(str(template_dir)),
         autoescape=select_autoescape(enabled_extensions=("html", "j2")),
@@ -62,7 +62,7 @@ def render_html(data: dict[str, Any], template_dir: Path, output_path: Path) -> 
         lstrip_blocks=True,
     )
     template = env.get_template("resume.html.j2")
-    output_path.write_text(template.render(**data), encoding="utf-8")
+    output_path.write_text(template.render(**data, theme=theme), encoding="utf-8")
 
 
 def set_document_defaults(document: Document) -> None:
@@ -288,6 +288,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--template-dir", type=Path, default=Path("templates"))
     parser.add_argument("--out-dir", type=Path, default=Path("dist"))
     parser.add_argument("--base-name", default="Kevin_Courbet_CV_2026_with_threadmill")
+    parser.add_argument("--theme", choices=("light", "dark", "all"), default="all")
     parser.add_argument("--skip-docx-pdf", action="store_true")
     parser.add_argument("--skip-html-pdf", action="store_true")
     return parser.parse_args()
@@ -300,23 +301,31 @@ def main() -> None:
     data = load_resume_data(args.data)
     docx_path = args.out_dir / f"{args.base_name}.docx"
     docx_pdf_path = args.out_dir / f"{args.base_name}_docx.pdf"
-    html_path = args.out_dir / f"{args.base_name}.html"
-    html_pdf_path = args.out_dir / f"{args.base_name}_html.pdf"
+    themes = ("light", "dark") if args.theme == "all" else (args.theme,)
 
     build_docx(data, docx_path)
-    render_html(data, args.template_dir, html_path)
 
     if not args.skip_docx_pdf:
         render_docx_pdf(docx_path, docx_pdf_path)
-    if not args.skip_html_pdf:
-        render_html_pdf(html_path, html_pdf_path)
+
+    html_paths: list[Path] = []
+    html_pdf_paths: list[Path] = []
+    for theme in themes:
+        html_path = args.out_dir / f"{args.base_name}_{theme}.html"
+        html_pdf_path = args.out_dir / f"{args.base_name}_{theme}_html.pdf"
+        render_html(data, args.template_dir, html_path, theme)
+        html_paths.append(html_path)
+        if not args.skip_html_pdf:
+            render_html_pdf(html_path, html_pdf_path)
+            html_pdf_paths.append(html_pdf_path)
 
     print("Generated:")
     print(f"- {docx_path}")
     if docx_pdf_path.exists():
         print(f"- {docx_pdf_path}")
-    print(f"- {html_path}")
-    if html_pdf_path.exists():
+    for html_path in html_paths:
+        print(f"- {html_path}")
+    for html_pdf_path in html_pdf_paths:
         print(f"- {html_pdf_path}")
 
 

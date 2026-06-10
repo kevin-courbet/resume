@@ -7,7 +7,7 @@ tasks:
       - uv sync
 
   build:
-    desc: Generate DOCX, DOCX-PDF, HTML, and HTML-PDF artifacts
+    desc: Generate standard and AEROW DOCX/PDF plus HTML artifacts
     cmds:
       - uv run cv-build
 
@@ -15,6 +15,11 @@ tasks:
     desc: Generate artifacts available without LibreOffice
     cmds:
       - uv run cv-build --skip-docx-pdf
+
+  build:aerow:
+    desc: Generate only AEROW DOCX/PDF artifacts
+    cmds:
+      - uv run cv-build --target aerow
 
   clean:
     desc: Remove generated artifacts

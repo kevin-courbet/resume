@@ -1,4 +1,4 @@
-"""Build CV artifacts from structured YAML content."""
+"""Build CV artifacts from structured source content."""
 
 from __future__ import annotations
 
@@ -15,9 +15,13 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Cm, Pt, RGBColor
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from cv_builder.aerow import build_aerow_docx
+
 ACCENT = RGBColor(36, 79, 143)
 INK = RGBColor(23, 32, 51)
 MUTED = RGBColor(90, 101, 120)
+STANDARD_BASE_NAME = "Kevin_Courbet_CV_2026_with_threadmill"
+AEROW_BASE_NAME = "Kevin_Courbet_CV_AEROW_2026"
 REQUIRED_TOP_LEVEL_KEYS = {
     "additional",
     "education",
@@ -287,46 +291,66 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--data", type=Path, default=Path("data/resume.yml"))
     parser.add_argument("--template-dir", type=Path, default=Path("templates"))
     parser.add_argument("--out-dir", type=Path, default=Path("dist"))
-    parser.add_argument("--base-name", default="Kevin_Courbet_CV_2026_with_threadmill")
+    parser.add_argument("--base-name", default=STANDARD_BASE_NAME)
+    parser.add_argument("--target", choices=("standard", "aerow", "all"), default="all")
     parser.add_argument("--theme", choices=("light", "dark", "all"), default="all")
     parser.add_argument("--skip-docx-pdf", action="store_true")
     parser.add_argument("--skip-html-pdf", action="store_true")
     return parser.parse_args()
 
 
-def main() -> None:
-    args = parse_args()
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-
-    data = load_resume_data(args.data)
+def build_standard_artifacts(args: argparse.Namespace) -> list[Path]:
     docx_path = args.out_dir / f"{args.base_name}.docx"
     docx_pdf_path = args.out_dir / f"{args.base_name}_docx.pdf"
     themes = ("light", "dark") if args.theme == "all" else (args.theme,)
+    generated_paths = [docx_path]
 
+    data = load_resume_data(args.data)
     build_docx(data, docx_path)
 
     if not args.skip_docx_pdf:
         render_docx_pdf(docx_path, docx_pdf_path)
+        generated_paths.append(docx_pdf_path)
 
-    html_paths: list[Path] = []
-    html_pdf_paths: list[Path] = []
     for theme in themes:
         html_path = args.out_dir / f"{args.base_name}_{theme}.html"
         html_pdf_path = args.out_dir / f"{args.base_name}_{theme}_html.pdf"
         render_html(data, args.template_dir, html_path, theme)
-        html_paths.append(html_path)
+        generated_paths.append(html_path)
         if not args.skip_html_pdf:
             render_html_pdf(html_path, html_pdf_path)
-            html_pdf_paths.append(html_pdf_path)
+            generated_paths.append(html_pdf_path)
+
+    return generated_paths
+
+
+def build_aerow_artifacts(args: argparse.Namespace) -> list[Path]:
+    docx_path = args.out_dir / f"{AEROW_BASE_NAME}.docx"
+    pdf_path = args.out_dir / f"{AEROW_BASE_NAME}.pdf"
+    template_path = args.template_dir / "aerow-template.docx"
+    generated_paths = [docx_path]
+
+    build_aerow_docx(template_path, docx_path)
+    if not args.skip_docx_pdf:
+        render_docx_pdf(docx_path, pdf_path)
+        generated_paths.append(pdf_path)
+
+    return generated_paths
+
+
+def main() -> None:
+    args = parse_args()
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+
+    generated_paths: list[Path] = []
+    if args.target in {"standard", "all"}:
+        generated_paths.extend(build_standard_artifacts(args))
+    if args.target in {"aerow", "all"}:
+        generated_paths.extend(build_aerow_artifacts(args))
 
     print("Generated:")
-    print(f"- {docx_path}")
-    if docx_pdf_path.exists():
-        print(f"- {docx_pdf_path}")
-    for html_path in html_paths:
-        print(f"- {html_path}")
-    for html_pdf_path in html_pdf_paths:
-        print(f"- {html_pdf_path}")
+    for path in generated_paths:
+        print(f"- {path}")
 
 
 if __name__ == "__main__":

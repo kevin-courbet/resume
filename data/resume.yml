@@ -1,5 +1,5 @@
 name: Kevin Courbet
-headline: Full Stack & Data Engineering Lead | Analytics Platforms | Agentic Engineering
+headline: FDE and Engineering Lead | Agentic Engineering
 location: Paris, France
 phone: "+33 6 72 05 37 05"
 phone_uri: "+33672053705"
@@ -31,24 +31,24 @@ expertise:
   - label: Agentic engineering
     text: LLM-assisted development, agent harnesses, context engineering, workflow automation, loop design
 experience_page_1:
-  - title: Freelance Solutions Engineer / Lead Developer | VersaDev
+  - title: Freelance FDE / Engi Lead | VersaDev
     context: Paris / Remote
     dates: Mar 2023 - Present
     bullets:
       - Built software, data engineering, and analytics solutions for corporate clients, covering architecture, implementation, delivery, and handover.
     clients:
       - title: Blue Systems (Bolloré Group)
-        subtitle: Lead Developer / Data Platform Engineering
+        subtitle: FDE / Engi Lead
         dates: Mar 2023 - Jun 2026
         accent: primary
         bullets:
-          - Engineered from the ground up a production Data Analytics platform processing 20M+ records per day under real-world cost constraints.
-          - Designed and implemented a Databricks lakehouse with Spark/PySpark pipelines, dbt transformations, Power BI analytics, and customer-facing insights.
-          - Built Go-based APIs for ingestion and operational workflows; integrated with Databricks SQL Warehouse, cloud/serverless patterns, and production data services.
-          - Developed cost-aware patterns for ingestion, transformation, analytics serving, and operations to keep the platform production-feasible.
+          - Integrated the organization to frame the data-platform opportunity with the CTO, building the initial POC and target architecture.
+          - Led and implemented the production Data Analytics platform end-to-end as Engineering Lead, processing 20M+ records per day.
+          - Built the full stack across Databricks lakehouse, Spark/PySpark pipelines, dbt transformations, Go APIs, Power BI analytics, and customer-facing insights.
+          - Established cost-aware patterns for ingestion, transformation, analytics serving, and operations to keep the platform production-feasible.
           - "Technical article: documented the Blue Systems implementation across Lakehouse, SQL Warehouses, Delta Live Tables, Unity Catalog, and a Go API for a smart-city data service."
       - title: Amex GBT Consulting
-        subtitle: Freelance Consultant / Front-end Delivery
+        subtitle: FDE / Front-end Delivery
         dates: Jun 2023 - Aug 2023
         accent: secondary
         bullets:

@@ -146,11 +146,11 @@ def build_aerow_docx(template_path: Path, output_path: Path) -> None:
     experience(
         document,
         "Mars 2023 - Juin 2026 - Blue Systems (Bolloré Group) / VersaDev",
-        "Lead Developer / Data Platform Engineering",
+        "FDE / Engi Lead",
         [
-            "Construction from scratch d’une plateforme Data Analytics en production traitant plus de 20M d’enregistrements par jour sous contraintes fortes de coûts.",
-            "Conception et implémentation d’un Databricks Lakehouse avec pipelines Spark/PySpark, transformations dbt, analytics Power BI et insights client-facing.",
-            "Développement d’API Go pour les workflows d’ingestion et d’exploitation, intégrées à Databricks SQL Warehouse et à des services cloud/serverless.",
+            "Intégration dans l’organisation pour cadrer l’opportunité data platform avec le CTO, puis construction du POC initial et de l’architecture cible.",
+            "Pilotage et implémentation end-to-end de la plateforme Data Analytics en production en tant qu’Engineering Lead, traitant plus de 20M d’enregistrements par jour.",
+            "Construction du stack complet : Databricks Lakehouse, pipelines Spark/PySpark, transformations dbt, API Go, analytics Power BI et insights client-facing.",
             "Mise en place de patterns cost-aware pour l’ingestion, la transformation, le serving analytics et les opérations afin de rendre la plateforme viable en production.",
             "Documentation technique de l’implémentation Blue Systems : Lakehouse, SQL Warehouses, Delta Live Tables, Unity Catalog et API Go pour service data smart-city.",
         ],
@@ -158,7 +158,7 @@ def build_aerow_docx(template_path: Path, output_path: Path) -> None:
     experience(
         document,
         "Juin 2023 - Août 2023 - Amex GBT Consulting / VersaDev",
-        "Freelance Consultant / Front-end Delivery",
+        "FDE / Front-end Delivery",
         [
             "Refonte du portail analytics consommateur d’Amex GBT Consulting afin de renforcer le self-service, l’interactivité et l’engagement utilisateur.",
             "Coordination avec les équipes produit, développement et infrastructure en cycles sprint, livraison de fonctionnalités Vue.js end-to-end et support de handover.",

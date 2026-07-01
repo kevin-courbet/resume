@@ -227,8 +227,6 @@ def build_docx(data: dict[str, Any], output_path: Path) -> None:
         add_bullets(document, role.get("trailing_bullets", []), compact=True)
 
     add_page_break(document)
-    add_header(document, data, compact=True)
-    add_section_title(document, "Professional Experience")
     for role in data["experience_page_2"]:
         add_role_header(document, role["title"], role["context"], role["dates"])
         add_bullets(document, role["bullets"], compact=True)
